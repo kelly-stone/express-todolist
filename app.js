@@ -1,10 +1,14 @@
-const express = require("express");
+var express = require("express");
 
-const app = express();
+var todocontroller = require("./controllers/todocontrollertodocontroller");
+
+var app = express();
 
 app.set("view engine", "ejs");
 
 app.use(express.static("./public"));
+
+todocontroller(app); //app means todocontroller.js function(app)
 
 app.listen(5000, function() {
   console.log("server started on port 5000...");
