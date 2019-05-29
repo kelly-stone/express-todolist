@@ -1,6 +1,6 @@
 var express = require("express");
 
-var todocontroller = require("./controllers/todocontrollertodocontroller");
+var todocontroller = require("./controllers/todocontroller");
 
 var app = express();
 
@@ -10,6 +10,6 @@ app.use(express.static("./public"));
 
 todocontroller(app); //app means todocontroller.js function(app)
 
-app.listen(5000, function() {
-  console.log("server started on port 5000...");
+app.listen(5001, function() {
+  console.log("server started on port 5001...");
 });
