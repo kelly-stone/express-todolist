@@ -4,9 +4,14 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 var mongoose = require("mongoose");
 
+//mlab.com
 mongoose.connect(
   "mongodb://kellyatwellington:kellyatwellington@ds231517.mlab.com:31517/todos"
 );
+
+var todoSchema = new mongoose.Schema({
+  item: String
+});
 
 var data = [{ item: "shopping" }, { item: "eating" }, { item: "coding" }];
 
