@@ -2,6 +2,12 @@ var bodyParser = require("body-parser");
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+var mongoose = require("mongoose");
+
+mongoose.connect(
+  "mongodb://kellyatwellington:kellyatwellington@ds231517.mlab.com:31517/todos"
+);
+
 var data = [{ item: "shopping" }, { item: "eating" }, { item: "coding" }];
 
 module.exports = function(app) {
