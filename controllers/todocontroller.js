@@ -6,11 +6,18 @@ var mongoose = require("mongoose");
 
 //mlab.com
 mongoose.connect(
-  "mongodb://kellyatwellington:kellyatwellington@ds231517.mlab.com:31517/todos"
+  "mongodb://kellyatwellington:meimei1974@ds231517.mlab.com:31517/todos"
 );
 
 var todoSchema = new mongoose.Schema({
   item: String
+});
+
+var Todo = mongoose.model("Todo", todoSchema);
+
+var itemOne = Todo({ item: "buy food" }).save(function(err) {
+  if (err) throw err;
+  console.log("item saved");
 });
 
 var data = [{ item: "shopping" }, { item: "eating" }, { item: "coding" }];
