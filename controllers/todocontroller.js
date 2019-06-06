@@ -15,16 +15,19 @@ var todoSchema = new mongoose.Schema({
 
 var Todo = mongoose.model("Todo", todoSchema);
 
-var itemOne = Todo({ item: "buy food" }).save(function(err) {
-  if (err) throw err;
-  console.log("item saved");
-});
+// var itemOne = Todo({ item: "buy food" }).save(function(err) {
+//   if (err) throw err;
+//   console.log("item saved");
+// });
 
-var data = [{ item: "shopping" }, { item: "eating" }, { item: "coding" }];
+// var data = [{ item: "shopping" }, { item: "eating" }, { item: "coding" }];
 
 module.exports = function(app) {
   app.get("/todo", function(req, res) {
-    res.render("todo", { todos: data }); //todos from ejs
+    Todo.find({}, function(err, data) {
+      if (err) throw err;
+      res.render("todo", { todos: data }); //todos from ejs
+    });
   });
 
   app.post("/todo", urlencodedParser, function(req, res) {
